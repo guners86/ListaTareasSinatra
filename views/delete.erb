@@ -1,0 +1,10 @@
+<% if @tarea %>
+  <p>Estas seguro de querer eliminar la siguiente Tarea: <em>"<%= @tarea["title"] %>"</em>?</p>
+  <form action="/<%= @tarea["id"] %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Si, Borrarla!">
+    <a href="/">Cancel</a>
+  </form>
+<% else %>
+  <p>No se encontro la Tarea.</p>
+<% end %>

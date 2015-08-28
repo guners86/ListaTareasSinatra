@@ -1,0 +1,19 @@
+<section id="add">
+  <form action="/" method="post">
+    <textarea name="content" placeholder="Tu Tarea"></textarea>
+    <input type="submit" value="Nueva Tarea!">
+  </form>
+</section>
+ 
+<% @tareas.each do |tarea| %>
+  <article <%= 'class="complete"' if tarea["done"] %>>
+    <p>
+      <%= tarea["title"] %>
+      <span><a href="/<%= tarea["id"] %>/delete">Delete</a></span>
+    </p>
+    <p class="links">
+      <a href="/<%= tarea["id"] %>/complete">&#8623;</a>
+    </p>
+    <p class="meta">Fecha Creación: <%= tarea["created_at"] %></p>
+  </article>
+<% end %>
